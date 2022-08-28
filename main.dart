@@ -26,4 +26,12 @@ void main() {
   for (int i = 0; i < 5; i++) {
     print('hello ${i + 1}');
   }
+
+  List names = ["a", "b", "c", "d", "f"];
+  names.add(1000);
+  names = names.where((e) {
+    return e != "a";
+  }).toList();
+  names.remove("b");
+  print(names.reversed);
 }
