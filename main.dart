@@ -27,11 +27,15 @@ void main() {
     print('hello ${i + 1}');
   }
 
-  List names = ["a", "b", "c", "d", "f"];
+  List names = ["a", "b", "c", "d", "f", "f"]; // 数组可重复
   names.add(1000);
   names = names.where((e) {
     return e != "a";
   }).toList();
   names.remove("b");
   print(names.reversed);
+
+  Set setNames = {"a", "b", "c", "d", "f"}; // 集合不可重复
+  print(setNames.length);
+  print(setNames.contains("a"));
 }
