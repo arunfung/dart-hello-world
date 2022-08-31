@@ -90,7 +90,7 @@ void main() {
     print(element);
   });
 
-  Animal a = new Animal();
+  Animal a = new Animal("cat", 5);
   print(a);
 
   Animal b = Animal.create("arun", 18);
@@ -98,12 +98,24 @@ void main() {
   print(b.age);
   b.say();
 
-  Animal c = Animal(); // 不加 new 关键字也可以
+  Animal c = Animal("dog", 3); // 不加 new 关键字也可以
   print(c);
   c.say();
 
   print(Animal.desc); // 静态属性使用不需要实例化
   Animal.introduce(); // 静态方法使用不需要实例化
+
+  Dog dog = Dog("小明", 3, "hhhh");
+  print(dog.name);
+  print(dog.age);
+  print(dog.des);
+
+  if (dog is Animal) {
+    dog.say();
+    print("yes");
+  }
+
+  (dog as Animal).say(); // 简写方式
 }
 
 class Animal {
@@ -116,9 +128,7 @@ class Animal {
   String? name;
   int? age;
 
-  Animal() {
-    print("Animal Create");
-  }
+  Animal(this.name, this.age); // 类的构造函数
 
   Animal.create(pName, pAge)
       : name = pName,
@@ -128,4 +138,10 @@ class Animal {
   say() {
     print('${this.name}:${this.age}');
   }
+}
+
+class Dog extends Animal {
+  String des;
+
+  Dog(String name, int age, this.des) : super(name, age);
 }
