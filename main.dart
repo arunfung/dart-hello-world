@@ -16,7 +16,7 @@ void main() {
   double1 = "1234"; // 只允许被赋值一次
   print(double1);
 
-  final ages = [10,20,30]; // 初始化
+  final ages = [10, 20, 30]; // 初始化
   ages[0] = 1; // 只允许被赋值一次
   print(ages);
 
@@ -41,8 +41,8 @@ void main() {
 
   // map 相同的key，后面会覆盖前面
   Map<String, dynamic> person = {
-    "name" : "arun",
-    "addr" : "上海",
+    "name": "arun",
+    "addr": "上海",
   };
   print(person['name']);
 
@@ -52,4 +52,18 @@ void main() {
   person.forEach((key, value) {
     print('${key}: ${value}');
   });
+
+  // 未命名参数传参
+  String transform(String key, String value) {
+    return "$key $value";
+  }
+
+  print(transform("hi", "arun"));
+
+  // 命名化参数传参 required 必传、 ? 不必传、 ：""  默认值
+  String transform1({required String key, String? value: "fung"}) {
+    return "$key $value";
+  }
+
+  print(transform1(key: "hi", value: "arun"));
 }
