@@ -82,11 +82,32 @@ void main() {
   print(result);
 
   List forNames = ["a", "b", "c", "d", "f"];
-  for(var i = 0; i < forNames.length; i++) {
+  for (var i = 0; i < forNames.length; i++) {
     print(forNames[i]);
   }
 
   forNames.forEach((element) {
     print(element);
   });
+
+  Animal a = new Animal();
+  print(a);
+
+  Animal b = Animal.create("arun", 18);
+  print(b.name);
+  print(b.age);
+
+  Animal c = Animal(); // 不加 new 关键字也可以
+  print(c);
+}
+
+class Animal {
+  String? name;
+  int? age;
+
+  Animal() {
+    print("Animal Create");
+  }
+
+  Animal.create(pName, pAge): name = pName, age = pAge;
 }
