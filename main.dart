@@ -38,4 +38,18 @@ void main() {
   Set setNames = {"a", "b", "c", "d", "f"}; // 集合不可重复
   print(setNames.length);
   print(setNames.contains("a"));
+
+  // map 相同的key，后面会覆盖前面
+  Map<String, dynamic> person = {
+    "name" : "arun",
+    "addr" : "上海",
+  };
+  print(person['name']);
+
+  person.putIfAbsent("age", () => 18);
+  print(person['age']);
+  print(person.containsKey("age"));
+  person.forEach((key, value) {
+    print('${key}: ${value}');
+  });
 }
