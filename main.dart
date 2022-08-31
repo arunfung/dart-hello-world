@@ -96,12 +96,23 @@ void main() {
   Animal b = Animal.create("arun", 18);
   print(b.name);
   print(b.age);
+  b.say();
 
   Animal c = Animal(); // 不加 new 关键字也可以
   print(c);
+  c.say();
+
+  print(Animal.desc); // 静态属性使用不需要实例化
+  Animal.introduce(); // 静态方法使用不需要实例化
 }
 
 class Animal {
+  static var desc = "动物世界"; // 静态属性
+  static introduce() {
+    // 静态方法
+    print(Animal.desc);
+  }
+
   String? name;
   int? age;
 
@@ -109,5 +120,12 @@ class Animal {
     print("Animal Create");
   }
 
-  Animal.create(pName, pAge): name = pName, age = pAge;
+  Animal.create(pName, pAge)
+      : name = pName,
+        age = pAge;
+
+  // 类的成员方法
+  say() {
+    print('${this.name}:${this.age}');
+  }
 }
