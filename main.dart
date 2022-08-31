@@ -63,7 +63,7 @@ void main() {
   // 命名化参数传参 required 必传、 ? 不必传、 ：""  默认值
   String transform1({required String key, String? value: "fung"}) {
     return "$key $value";
-  };
+  }
 
   print(transform1(key: "hi", value: "arun"));
 
@@ -73,7 +73,20 @@ void main() {
   };
   print(func(key: "hi", value: "func"));
   // 强类型限制 + 简单的剪头返回值
-  Function func1 = ({required String key, String? value: "fung"}) => "$key $value";
+  Function func1 =
+      ({required String key, String? value: "fung"}) => "$key $value";
   print(func1(key: "hi", value: "func1"));
 
+  var result;
+  result ??= "fail";
+  print(result);
+
+  List forNames = ["a", "b", "c", "d", "f"];
+  for(var i = 0; i < forNames.length; i++) {
+    print(forNames[i]);
+  }
+
+  forNames.forEach((element) {
+    print(element);
+  });
 }
