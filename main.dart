@@ -63,7 +63,17 @@ void main() {
   // 命名化参数传参 required 必传、 ? 不必传、 ：""  默认值
   String transform1({required String key, String? value: "fung"}) {
     return "$key $value";
-  }
+  };
 
   print(transform1(key: "hi", value: "arun"));
+
+  // 匿名函数
+  var func = ({required String key, String? value: "fung"}) {
+    return "$key $value";
+  };
+  print(func(key: "hi", value: "func"));
+  // 强类型限制 + 简单的剪头返回值
+  Function func1 = ({required String key, String? value: "fung"}) => "$key $value";
+  print(func1(key: "hi", value: "func1"));
+
 }
