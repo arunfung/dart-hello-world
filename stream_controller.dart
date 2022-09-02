@@ -25,8 +25,11 @@ void main() {
     print('${student.score} 3');
   });
 
-  sc.add(Student(score));
-  sc.add(Student(60));
+  StreamSink sink =  sc.sink;
+
+  sink.add(Student(80));
+  sink.add(Student(score));
+  sink.add(Student(60));
   if (score < 60) {
     m.pause(); // 暂停
     // m.resume(); // 重启
